@@ -1,0 +1,39 @@
+
+local fill = "colorfill"
+
+function init(self)
+
+	msg.post("@render:", "clear_color", { color = vmath.vector4(0.22, 0.23, 0.31, 0) } ) -- set the background color
+	msg.post(".", "acquire_input_focus") -- get input focus
+
+
+	self.button = gui.get_node("button")
+	self.star = gui.get_node("star")
+	self.is_on = false
+
+end
+
+
+function on_input(self, action_id, action)
+
+	if gui.pick_node(self.button, action.x, action.y) and action.pressed then
+
+		if self.is_on then
+
+			gui.reset_material(self.star)
+
+
+			self.is_on = false
+
+
+		else
+
+			gui.set_material(self.star, fill)
+
+
+			self.is_on = true
+
+
+		end
+	end
+end

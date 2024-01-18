@@ -1,0 +1,16 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 640
+height = 640
+
+[android]
+input_method = HiddenInputField
+
+[project]
+title = Sample - solid color shader
+
