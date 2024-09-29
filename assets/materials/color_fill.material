@@ -1,8 +1,7 @@
 name: "sprite"
 tags: "tile"
-vertex_program: "/builtins/materials/sprite.vp"
+vertex_program: "/assets/materials/color_fill.vp"
 fragment_program: "/assets/materials/color_fill.fp"
-vertex_space: VERTEX_SPACE_WORLD
 vertex_constants {
   name: "view_proj"
   type: CONSTANT_TYPE_VIEWPROJ
@@ -17,4 +16,3 @@ fragment_constants {
     w: 1.0
   }
 }
-max_page_count: 0

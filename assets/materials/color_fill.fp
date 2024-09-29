@@ -1,13 +1,20 @@
-varying mediump vec2 var_texcoord0;
+#version 140
 
-uniform lowp sampler2D texture_sampler;
-uniform lowp vec4 tint;
+uniform sampler2D texture_sampler;
+uniform fs_uniforms
+{
+    vec4 tint;
+};
+
+in vec2 var_texcoord0;
+out vec4 color_out;
+
 
 void main()
 {
 
 
-    lowp vec4 tex = texture2D(texture_sampler, var_texcoord0.xy);
+    lowp vec4 tex = texture(texture_sampler, var_texcoord0.xy);
 
 
     lowp vec4 tint_pm = vec4(tint.xyz, tint.w) * tex.a; 
@@ -19,7 +26,7 @@ void main()
 
 
 
-    gl_FragColor = vec4(final_color.rgb,tex.a);
+    color_out = vec4(final_color.rgb,tex.a);
     // If tint_pm.w value is 0 then "tex.rgb" is returned and if value is 1 then "tint_pm.rgb" is returned to final_color.
 
 
